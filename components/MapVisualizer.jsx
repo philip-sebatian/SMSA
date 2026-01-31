@@ -146,6 +146,9 @@ const MapVisualizer = ({ routeCoordinates, routeSegments, allSegments }) => {
                 scrollWheelZoom={true}
                 style={{ height: '100%', width: '100%', background: '#020617' }}
                 className="z-0"
+                minZoom={3}
+                maxBounds={[[-90, -180], [90, 180]]}
+                maxBoundsViscosity={1.0}
             >
                 <ChangeView center={center} zoom={zoom} />
                 <RecenterControl routeCoordinates={routeCoordinates} allSegments={allSegments} />
@@ -154,6 +157,7 @@ const MapVisualizer = ({ routeCoordinates, routeSegments, allSegments }) => {
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                     url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                    noWrap={true}
                 />
 
                 {/* Background Network (All Connections) */}
